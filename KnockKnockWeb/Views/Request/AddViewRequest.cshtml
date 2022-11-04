@@ -1,0 +1,59 @@
+﻿@model KnockKnockWeb.Models.RequestModel
+@{
+    ViewBag.Title = "AddViewRequest";
+}
+
+<div class="col-md-12">
+    <div class="col-md-12">
+        <div class="col-md-6">
+            @using (Html.BeginForm("AddRequest", "Request", FormMethod.Post))
+            {
+                <input type="submit" class="btn-info" value="Add Request" />
+            }
+        </div>
+        <div class="col-md-6"></div>
+    </div>
+    <div class="col-md-12">
+        <div class="col-md-12">
+            <div class="box-body">
+                <label class="label-info">My Requests</label>
+                <table id="tblGrid" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Created Date</th>
+                            <th>Status</th>                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int sl = 0;
+                            foreach (var item in Model.Requests)
+                            {
+                                string state = (item.Status == 0) ? "Pending" : (item.Status == 1) ? "Approved" : "Rejected";
+                                sl++;
+                                <tr>
+                                    <td>@sl</td>
+                                    <td>@item.CreatedAt</td>
+                                    <td>@state</td>                                    
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                    <tfoot>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+@if (ViewBag.Message != null)
+{
+    <script>
+       alert('@ViewBag.Message');
+    </script>
+}
+
