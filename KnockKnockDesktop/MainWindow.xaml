@@ -23,7 +23,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="RequestID" Width="*" Binding="{Binding RequestID}" Visibility="Hidden"/>
                 <DataGridTextColumn Header="No" Width="*" Binding="{Binding No}" IsReadOnly="True" Visibility="Hidden"/>
-                <DataGridTextColumn Header="Date Created" Width="*" Binding="{Binding CreatedAt}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Date Created" Width="*" Binding="{Binding CreatedAt}" IsReadOnly="True" SortDirection="Descending"/>
                 <DataGridTextColumn Header="Status" Width="*" Binding="{Binding Status}" IsReadOnly="True"/>
                 <DataGridTemplateColumn Header="Action" Width="*">
                     <DataGridTemplateColumn.CellTemplate>

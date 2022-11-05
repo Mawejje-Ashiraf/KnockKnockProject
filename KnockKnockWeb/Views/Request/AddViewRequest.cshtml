@@ -3,52 +3,58 @@
     ViewBag.Title = "AddViewRequest";
 }
 
-<div class="col-md-12">
-    <div class="col-md-12">
-        <div class="col-md-6">
-            @using (Html.BeginForm("AddRequest", "Request", FormMethod.Post))
-            {
-                <input type="submit" class="btn-info" value="Add Request" />
-            }
-        </div>
-        <div class="col-md-6"></div>
-    </div>
-    <div class="col-md-12">
+<section class="content-header">
+    @using (Html.BeginForm("AddRequest", "Request", FormMethod.Post))
+    {
+        <input type="submit" class="btn btn-primary" value="Add Request" />
+    }
+</section>
+
+<section class="content"
+    <div class="row">
         <div class="col-md-12">
-            <div class="box-body">
-                <label class="label-info">My Requests</label>
-                <table id="tblGrid" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Created Date</th>
-                            <th>Status</th>                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @{
-                            int sl = 0;
-                            foreach (var item in Model.Requests)
-                            {
-                                string state = (item.Status == 0) ? "Pending" : (item.Status == 1) ? "Approved" : "Rejected";
-                                sl++;
-                                <tr>
-                                    <td>@sl</td>
-                                    <td>@item.CreatedAt</td>
-                                    <td>@state</td>                                    
-                                </tr>
+            <div class="box" id="div-menu-form">
+                <div class="box-header with-border">
+                    <h2 class="box-title" id="smlTxt">My Requests</h2>
+                </div>
+                <div class="box-body">
+                    <button class="btn btn-info" id="button_selector">Refresh Requests List</button>
+                    <table id="tblGrid" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Created Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int sl = 0;
+                                foreach (var item in Model.Requests)
+                                {
+                                    string state = (item.Status == 0) ? "Pending" : (item.Status == 1) ? "Approved" : "Rejected";
+                                    string coloritem = (item.Status == 0) ? "blue" : (item.Status == 1) ? "green" : "red";
+                                    sl++;
+                                    <tr>
+                                        <td>@sl</td>
+                                        <td>@item.CreatedAt</td>
+                                        <td>
+                                                <span style="color: @coloritem; font-weight: bold;">
+                                                   @state
+                                               </span>
+                                         </td>
+                                    </tr>
+                                }
                             }
-                        }
-                    </tbody>
-                    <tfoot>
-                    </tfoot>
-                </table>
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </div>
+              </div>
             </div>
         </div>
-
-    </div>
-</div>
-
+ </section>
 
 @if (ViewBag.Message != null)
 {
@@ -56,4 +62,21 @@
        alert('@ViewBag.Message');
     </script>
 }
+<script>
+    $(document).ready(function () {
+        $('#tblGrid').DataTable({
+            "paging": true,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": true
+        });
+        $('#button_selector').click(function () {
+            window.location.href = '/Request/AddViewRequest';
+        })
+    });
+</script>
+
+
+
 

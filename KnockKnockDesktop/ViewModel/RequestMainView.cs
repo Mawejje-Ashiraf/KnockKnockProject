@@ -14,6 +14,8 @@ namespace KnockKnockDesktop.ViewModel
     public class RequestMainView : RequestBase
     {
         private ObservableCollection<RequestData> _RequestList = null;
+
+        //implementing the property changed
         public ObservableCollection<RequestData> RequestList
         {
             get { return _RequestList; }
@@ -30,6 +32,10 @@ namespace KnockKnockDesktop.ViewModel
             LoadData();            
         }
 
+        /// <summary>
+        /// Loading data from service
+        /// </summary>
+        /// <returns></returns>
         private async Task LoadData()
         {
             await Task.Run(() =>
@@ -47,8 +53,10 @@ namespace KnockKnockDesktop.ViewModel
                             {
                                 string State = (ReqList.Status == 0) ? "Pending" : (ReqList.Status == 1) ? "Approved" : "Rejected";
                                 count++;
+                                //invoke delegete to update request list on main UI thread
                                 App.Current.Dispatcher.Invoke((Action)delegate
                                 {
+                                    //Just incase request is not pending its not processed
                                     if (ReqList.Status == 0)
                                     {
                                         if (RequestList.Where(requestid => requestid.RequestID == ReqList.RequestID).FirstOrDefault() == null)
@@ -59,6 +67,7 @@ namespace KnockKnockDesktop.ViewModel
                                 });
                             }
                         }
+                        //Thread rest for 10 seconds
                         Thread.Sleep(10000);
                     }
                 }

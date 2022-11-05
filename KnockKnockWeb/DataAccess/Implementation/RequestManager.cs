@@ -1,4 +1,5 @@
 ﻿using KnockKnockWeb.DataAccess.Contract;
+using KnockKnockWeb.Helpers;
 using KnockKnockWeb.Models;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,11 @@ namespace KnockKnockWeb.DataAccess.Implementation
 {
     public class RequestManager : IRequestManager
     {
+        /// <summary>
+        /// Saving new request
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public bool AddRequest(RequestModel model)
         {
             bool res = false;
@@ -26,9 +32,15 @@ namespace KnockKnockWeb.DataAccess.Implementation
             }
             catch(Exception ex)
             {
+                AppLogger.LogExceptionInFile(ex.Message.ToString(), "AddRequest", ex);
                 return res;
             }
         }
+
+        /// <summary>
+        /// Getting requests from the DB
+        /// </summary>
+        /// <returns></returns>
         public List<RequestModel> GetAllRequests()
         {
             List<RequestModel> res = new List<RequestModel>();
@@ -48,6 +60,7 @@ namespace KnockKnockWeb.DataAccess.Implementation
             }
             catch(Exception ex)
             {
+                AppLogger.LogExceptionInFile(ex.Message.ToString(), "GetAllRequests", ex);
                 return res;
             }
         }

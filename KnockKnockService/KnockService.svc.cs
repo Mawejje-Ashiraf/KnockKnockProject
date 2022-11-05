@@ -17,6 +17,10 @@ namespace KnockKnockService
             requsterModel = new Requester();
         }
 
+        /// <summary>
+        /// Processing request and response for incoming requests
+        /// </summary>
+        /// <returns></returns>
         public KnockResponse CheckForRequests()
         {
             KnockResponse response = new KnockResponse();
@@ -35,6 +39,13 @@ namespace KnockKnockService
             }
         }
 
+        /// <summary>
+        /// Processing request and response for updating  specific request item
+        /// </summary>
+        /// <param name="requestID"></param>
+        /// <param name="approve"></param>
+        /// <param name="SecToken"></param>
+        /// <returns></returns>
         public KnockResponse UpdateRequest(int requestID, bool approve, string SecToken)
         {
             KnockResponse response = new KnockResponse();

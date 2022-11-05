@@ -18,6 +18,10 @@ namespace KnockKnockDesktop.Services
             client = new KnockServiceClient();
         }
 
+        /// <summary>
+        /// Send Service request for Requests and process response
+        /// </summary>
+        /// <returns></returns>
         public List<RequestModel> CheckRecievedRequests()
         {
             List<RequestModel> reqModel = new List<RequestModel>();
@@ -43,6 +47,12 @@ namespace KnockKnockDesktop.Services
             return reqModel;
         }
 
+        /// <summary>
+        /// Send Service request for updating request and process response
+        /// </summary>
+        /// <param name="RequestID"></param>
+        /// <param name="Action"></param>
+        /// <returns></returns>
         public bool UpdateRequestRecord(int RequestID, bool Action)
         {
             bool res = false;
@@ -59,6 +69,12 @@ namespace KnockKnockDesktop.Services
             return res;
         }
 
+        /// <summary>
+        /// Generating secureToken for string
+        /// </summary>
+        /// <param name="requestID"></param>
+        /// <param name="approve"></param>
+        /// <returns></returns>
         public string GenerateSecureHash(int requestID, bool approve)
         {
             string PlainText = requestID.ToString() + approve.ToString();

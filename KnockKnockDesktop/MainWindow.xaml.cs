@@ -47,13 +47,20 @@ namespace KnockKnockDesktop
             RequestData dataRowView = (RequestData)grdRequests.SelectedItem;
             ProcessRequest(dataRowView, false);
         }
-            
+         
+        /// <summary>
+        /// Process Request for Approve and Reject
+        /// </summary>
+        /// <param name="dataRowView"></param>
+        /// <param name="Action"></param>
+        /// <returns></returns>
         private async Task ProcessRequest(RequestData dataRowView, bool Action)
         {
             await Task.Run(() =>
             {
                 try
                 {
+                    //Invoking delegate to update the main grid depending its rejected or approved
                     App.Current.Dispatcher.Invoke((Action)delegate
                     {
                         WCFServiceCall RequestsService = new WCFServiceCall();

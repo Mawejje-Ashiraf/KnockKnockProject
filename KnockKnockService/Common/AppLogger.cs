@@ -8,6 +8,13 @@ namespace KnockKnockService.Common
 {
     public static class AppLogger
     {
+        /// <summary>
+        /// Logging any exceptions during excuting some methods
+        /// </summary>
+        /// <param name="Details"></param>
+        /// <param name="Source"></param>
+        /// <param name="Ex"></param>
+        /// <returns></returns>
         public static bool LogExceptionInFile(String Details, string Source, Exception Ex)
         {
             try

@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace KnockKnockDesktop.Helpers
+namespace KnockKnockWeb.Helpers
 {
     public static class AppLogger
     {

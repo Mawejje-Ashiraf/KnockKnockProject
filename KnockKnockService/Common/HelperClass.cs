@@ -9,12 +9,22 @@ namespace KnockKnockService.Common
 {
     public static class HelperClass
     {
+        //Response Codes
         public enum ResponseCode
         {
             Failed = 101,
             Success = 100
         }
+        //Secure Key
         const string SecureKey = "WwWnBA2}Fx8L3C<*M_H}";
+
+        /// <summary>
+        /// Checking if the Sent Token is right
+        /// </summary>
+        /// <param name="requestID"></param>
+        /// <param name="approve"></param>
+        /// <param name="AuthString"></param>
+        /// <returns></returns>
         public static bool IsSecureTokenValid(int requestID, bool approve, string AuthString)
         {
             bool result = false;
@@ -28,6 +38,13 @@ namespace KnockKnockService.Common
             }
             return result;
         }
+
+        /// <summary>
+        /// Generating secure token depending on Requestid and approve request recieved
+        /// </summary>
+        /// <param name="requestID"></param>
+        /// <param name="approve"></param>
+        /// <returns></returns>
         public static string GenerateSecureHash(int requestID, bool approve)
         {
             string PlainText = requestID.ToString()+approve.ToString();

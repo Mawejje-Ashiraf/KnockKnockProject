@@ -11,6 +11,10 @@ namespace KnockKnockService.Implementation
 {
     public class Requester : IRequester
     {
+        /// <summary>
+        /// Getting all the pending Requests
+        /// </summary>
+        /// <returns></returns>
         public List<RequestModel> GetAllRequests()
         {
             List<RequestModel> res = new List<RequestModel>();
@@ -38,6 +42,11 @@ namespace KnockKnockService.Implementation
             }
         }
 
+        /// <summary>
+        /// Updating specific request depending on the model specified
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public bool UpdateRequest(RequestModel model)
         {
             bool res = false;
