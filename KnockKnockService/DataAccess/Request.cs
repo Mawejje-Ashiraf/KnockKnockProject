@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KnockKnockWeb.DataAccess
+namespace KnockKnockService.DataAccess
 {
     using System;
     using System.Collections.Generic;

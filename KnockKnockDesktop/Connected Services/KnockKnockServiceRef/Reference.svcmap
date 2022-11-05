@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="03060583-8e6c-4644-bd18-08fbbaa06447" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:60656/KnockService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="KnockService.wsdl" MetadataType="Wsdl" ID="8d8b46ce-4936-4322-8b19-a186aa56a348" SourceId="1" SourceUrl="http://localhost:60656/KnockService.svc?wsdl" />
+    <MetadataFile FileName="KnockService.xsd" MetadataType="Schema" ID="c05d560e-b662-42d1-aee6-0ec1df59e6ca" SourceId="1" SourceUrl="http://localhost:60656/KnockService.svc?xsd=xsd3" />
+    <MetadataFile FileName="KnockService1.xsd" MetadataType="Schema" ID="cf10ead1-4fbf-4ed2-aaf6-eb493b897f1e" SourceId="1" SourceUrl="http://localhost:60656/KnockService.svc?xsd=xsd0" />
+    <MetadataFile FileName="KnockService2.xsd" MetadataType="Schema" ID="b5a71958-ff6f-4e63-8ab9-16a9f3ece10a" SourceId="1" SourceUrl="http://localhost:60656/KnockService.svc?xsd=xsd1" />
+    <MetadataFile FileName="KnockService.disco" MetadataType="Disco" ID="cbd53c93-1cd7-472e-83e9-20b199c4fc21" SourceId="1" SourceUrl="http://localhost:60656/KnockService.svc?disco" />
+    <MetadataFile FileName="KnockService3.xsd" MetadataType="Schema" ID="722be85a-fb4e-454d-9af5-4886fc0b092c" SourceId="1" SourceUrl="http://localhost:60656/KnockService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/KnockKnockService.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/KnockKnockService.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:60656/KnockService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/KnockKnockService.Common" />
+  <xs:complexType name="KnockResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedAt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RequestID" type="xs:int" />
+      <xs:element minOccurs="0" name="Requests" nillable="true" type="tns:ArrayOfRequestModel" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/KnockKnockService.Common" minOccurs="0" name="ResponseStatusCode" type="q1:HelperClass.ResponseCode" />
+      <xs:element minOccurs="0" name="Status" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedAt" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KnockResponse" nillable="true" type="tns:KnockResponse" />
+  <xs:complexType name="ArrayOfRequestModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RequestModel" nillable="true" type="tns:RequestModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequestModel" nillable="true" type="tns:ArrayOfRequestModel" />
+  <xs:complexType name="RequestModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedAt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RequestID" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdatedAt" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestModel" nillable="true" type="tns:RequestModel" />
+</xs:schema>

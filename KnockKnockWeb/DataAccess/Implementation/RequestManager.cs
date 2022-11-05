@@ -18,8 +18,7 @@ namespace KnockKnockWeb.DataAccess.Implementation
                 {
                     Request AddRequest = new Request();
                     AddRequest.CreatedAt = model.CreatedAt;
-                    AddRequest.Status = model.Status;
-                    AddRequest.UpdatedAt = model.UpdatedAt;
+                    AddRequest.Status = model.Status;                    
                     dbcontext.Request.Add(AddRequest);
                     dbcontext.SaveChanges();
                 }
@@ -37,12 +36,12 @@ namespace KnockKnockWeb.DataAccess.Implementation
             {
                 using(var dbcontext = new KnockDBEntities())
                 {                    
-                    var result = (from a in dbcontext.Request orderby a.CreatedAt descending
-                           select new RequestModel()
-                           {
-                             CreatedAt = a.CreatedAt,
-                             Status = (int)a.Status
-                           }).ToList();
+                    var result = (from a in dbcontext.Request.OrderByDescending(a=>a.CreatedAt)
+                                   select new RequestModel()
+                                   {
+                                     CreatedAt = a.CreatedAt,
+                                     Status = a.Status
+                                   }).ToList();
                     res = result;
                 }                
                 return res;

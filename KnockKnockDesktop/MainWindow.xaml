@@ -1,0 +1,42 @@
+﻿<Window x:Class="KnockKnockDesktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KnockKnockDesktop"         
+        mc:Ignorable="d"
+        Title="Knock App" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="All Requests" Style="{StaticResource PageHeader}" Grid.Column="1" Grid.Row="0" />
+        <DataGrid Grid.Row="1" Grid.Column="1"  x:Name="grdRequests" AutoGenerateColumns="False" ItemsSource="{Binding Path=RequestList, Mode=OneWay}" CanUserAddRows="false"
+                  ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="RequestID" Width="*" Binding="{Binding RequestID}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="No" Width="*" Binding="{Binding No}" IsReadOnly="True" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Date Created" Width="*" Binding="{Binding CreatedAt}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Status" Width="*" Binding="{Binding Status}" IsReadOnly="True"/>
+                <DataGridTemplateColumn Header="Action" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>                            
+                            <StackPanel Orientation="Horizontal">
+                                <Button Name="btnApprove" Content="Approve" Click="btnApprove_Click" />
+                                <Separator Width="20" Background="Transparent"/>
+                                <Button Name="BtnReject" Content="Reject" Click="BtnReject_Click"  />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>       
+    </Grid>
+</Window>
