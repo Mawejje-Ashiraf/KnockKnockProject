@@ -47,7 +47,7 @@ namespace KnockKnockDesktop.ViewModel
                         WCFServiceCall RequestsService = new WCFServiceCall();
                         List<RequestModel> RequestsFromService = RequestsService.CheckRecievedRequests();
                         int count = 0;
-                        if (RequestsFromService.Count() > 0)
+                        if (RequestsFromService.Any())
                         {
                             foreach (var ReqList in RequestsFromService)
                             {
